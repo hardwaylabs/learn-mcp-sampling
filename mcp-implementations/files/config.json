@@ -1,0 +1,50 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 8080,
+    "ssl": {
+      "enabled": false,
+      "certificate": "/path/to/cert.pem",
+      "private_key": "/path/to/key.pem"
+    },
+    "cors": {
+      "enabled": true,
+      "allowed_origins": ["*"],
+      "allowed_methods": ["GET", "POST", "PUT", "DELETE"],
+      "allowed_headers": ["Content-Type", "Authorization"]
+    }
+  },
+  "database": {
+    "type": "postgresql",
+    "host": "db.example.com",
+    "port": 5432,
+    "username": "app_user",
+    "database": "production_db",
+    "ssl_mode": "require",
+    "connection_pool": {
+      "max_connections": 20,
+      "idle_timeout": "10m"
+    }
+  },
+  "cache": {
+    "type": "redis",
+    "host": "redis.example.com",
+    "port": 6379,
+    "ttl": "1h",
+    "key_prefix": "app:"
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "outputs": ["stdout", "/var/log/app.log"]
+  },
+  "features": {
+    "user_registration": true,
+    "email_notifications": true,
+    "analytics": true,
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 100
+    }
+  }
+}
