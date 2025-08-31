@@ -5,13 +5,13 @@ Understanding Model Context Protocol (MCP) sampling through hands-on examples an
 ## What You'll Learn
 
 1. **MCP Protocol** - How sampling should work in theory
-2. **Library Analysis** - What's broken in mcp-go implementation  
+2. **Library Analysis** - What's broken in mcp-go implementation
 3. **Reference Implementation** - Working examples for comparison
 4. **Debugging Techniques** - Tools and methods for protocol analysis
 
 ## Prerequisites
 
-**SSE Fundamentals Required**: This project assumes you understand Server-Sent Events and bidirectional communication patterns. If you're new to SSE, start with: [learn-sse-bidirectional](https://github.com/pavelanni/learn-sse-bidirectional)
+**SSE Fundamentals Required**: This project assumes you understand Server-Sent Events and bidirectional communication patterns. If you're new to SSE, start with: [learn-sse-bidirectional](https://github.com/hardwaylabs/learn-sse-bidirectional)
 
 ## Quick Start
 
@@ -60,7 +60,7 @@ Learn MCP through progressively complex examples:
 ### 3. Enable Community Contribution
 Help fix the mcp-go library by providing:
 - Clear problem reproduction
-- Working alternative implementations  
+- Working alternative implementations
 - Detailed analysis documentation
 - Test workflows for validation
 
@@ -69,7 +69,7 @@ Help fix the mcp-go library by providing:
 ```
 learn-mcp-sampling/
 ├── README.md                      # This overview
-├── MCP_PROTOCOL_EXPLAINED.md      # MCP-specific concepts  
+├── MCP_PROTOCOL_EXPLAINED.md      # MCP-specific concepts
 ├── working-examples/               # SSE reference implementations
 │   ├── cmd/
 │   │   ├── basic-sse-server/      # How SSE should work
@@ -100,7 +100,7 @@ learn-mcp-sampling/
 
 ### Phase 1: Understand the Problem
 1. **Read the Analysis**: Start with `debugging-tools/analysis/SAMPLING_ISSUE_ANALYSIS.md`
-2. **See Working SSE**: Run examples in `working-examples/` 
+2. **See Working SSE**: Run examples in `working-examples/`
 3. **Try Broken MCP**: Attempt `mcp-implementations/cmd/sampling-http-*`
 4. **Compare Results**: Identify the difference
 
@@ -120,7 +120,7 @@ learn-mcp-sampling/
 ```
 1. MCP Client declares sampling capability
 2. Someone calls a tool that needs LLM analysis
-3. MCP Server sends sampling request via SSE  
+3. MCP Server sends sampling request via SSE
 4. MCP Client processes request using LLM API
 5. MCP Client returns results via HTTP POST
 6. MCP Server provides results to tool caller
@@ -132,7 +132,7 @@ learn-mcp-sampling/
 - **Session Management**: Improper header handling
 - **Event Parsing**: SSE stream processing bugs
 
-### Working Alternatives  
+### Working Alternatives
 Our enhanced implementations prove the pattern works:
 - ✅ Clean SSE connections with instant delivery
 - ✅ Proper bidirectional communication
@@ -143,7 +143,7 @@ Our enhanced implementations prove the pattern works:
 
 ### File Analysis System (Enhanced Implementation)
 - **Server**: Serves files from local directory for analysis
-- **Client**: Uses Claude 3.5 Sonnet for content analysis  
+- **Client**: Uses Claude 3.5 Sonnet for content analysis
 - **Capabilities**: Text, image, and binary file support
 - **Features**: Summarization, code analysis, visual understanding
 
@@ -164,7 +164,7 @@ go run debugging-tools/cmd/check-sampling-clients/main.go
 # Debug SSE streams
 go run debugging-tools/cmd/debug-server/main.go
 
-# Full workflow test  
+# Full workflow test
 go run debugging-tools/cmd/test-workflow/main.go
 ```
 
@@ -177,7 +177,7 @@ go run debugging-tools/cmd/test-workflow/main.go
 ### Library Comparison
 Compare mcp-go behavior with our reference implementations:
 - Connection establishment patterns
-- Event streaming reliability  
+- Event streaming reliability
 - Error handling approaches
 - Session lifecycle management
 
@@ -217,16 +217,16 @@ Compare mcp-go behavior with our reference implementations:
 
 ## Related Projects
 
-- [learn-sse-bidirectional](https://github.com/pavelanni/learn-sse-bidirectional) - SSE fundamentals (prerequisite)
+- [learn-sse-bidirectional](https://github.com/hardwaylabs/learn-sse-bidirectional) - SSE fundamentals (prerequisite)
 - [mcp-go](https://github.com/mark3labs/mcp-go) - The library we're helping to fix
 - [Model Context Protocol](https://modelcontextprotocol.io/) - Official MCP specification
-- [Caret Labs](https://caretlabs.dev) - Hands-on learning methodology
+- [Hard Way Labs](https://hardwaylabs.dev) - Hands-on learning methodology
 
 ## Getting Help
 
 ### Common Issues
 - **"context deadline exceeded"**: Use `WithContinuousListening()` or our enhanced examples
-- **No sampling requests**: Check server tool registration and client capability declaration  
+- **No sampling requests**: Check server tool registration and client capability declaration
 - **Authentication errors**: Verify `ANTHROPIC_API_KEY` environment variable
 - **Connection failures**: Compare with working SSE examples in this project
 
@@ -244,6 +244,6 @@ MIT License - Use freely for learning, debugging, and contributing!
 
 **Debug Responsibly!** 🔍
 
-*Part of the Caret Labs learning methodology - hands-on, progressive, multi-component education for developers.*
+*Part of the Hard Way Labs learning methodology - hands-on, progressive, multi-component education for developers.*
 
 *Contributing to open source by making complex protocols understandable and fixable.*

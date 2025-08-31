@@ -1,4 +1,4 @@
-module github.com/pavelanni/learn-mcp-sampling
+module github.com/hardwaylabs/learn-mcp-sampling
 
 go 1.24.6
 
