@@ -14,14 +14,14 @@ This client:
 
 1. Start an MCP server that supports sampling (e.g., using the `sampling_server` example)
 
-2. Update the server URL in `main.go`:
+1. Update the server URL in `main.go`:
    ```go
    httpClient, err := client.NewStreamableHttpClient(
        "http://your-server:port", // Replace with your server URL
    )
    ```
 
-3. Run the client:
+1. Run the client:
    ```bash
    go run main.go
    ```

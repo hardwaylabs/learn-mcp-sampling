@@ -5,13 +5,14 @@ Understanding Model Context Protocol (MCP) sampling through hands-on examples an
 ## What You'll Learn
 
 1. **MCP Protocol** - How sampling should work in theory
-2. **Library Analysis** - What's broken in mcp-go implementation
-3. **Reference Implementation** - Working examples for comparison
-4. **Debugging Techniques** - Tools and methods for protocol analysis
+1. **Library Analysis** - What's broken in mcp-go implementation
+1. **Reference Implementation** - Working examples for comparison
+1. **Debugging Techniques** - Tools and methods for protocol analysis
 
 ## Prerequisites
 
-**SSE Fundamentals Required**: This project assumes you understand Server-Sent Events and bidirectional communication patterns. If you're new to SSE, start with: [learn-sse-bidirectional](https://github.com/hardwaylabs/learn-sse-bidirectional)
+**SSE Fundamentals Required**: This project assumes you understand Server-Sent Events and bidirectional communication patterns.
+If you're new to SSE, start with: [learn-sse-bidirectional](https://github.com/hardwaylabs/learn-sse-bidirectional)
 
 ## Quick Start
 
@@ -100,31 +101,29 @@ learn-mcp-sampling/
 
 ### Phase 1: Understand the Problem
 1. **Read the Analysis**: Start with `debugging-tools/analysis/SAMPLING_ISSUE_ANALYSIS.md`
-2. **See Working SSE**: Run examples in `working-examples/`
-3. **Try Broken MCP**: Attempt `mcp-implementations/cmd/sampling-http-*`
-4. **Compare Results**: Identify the difference
+1. **See Working SSE**: Run examples in `working-examples/`
+1. **Try Broken MCP**: Attempt `mcp-implementations/cmd/sampling-http-*`
+1. **Compare Results**: Identify the difference
 
 ### Phase 2: Study Working Solutions
 1. **Enhanced Server**: Real file analysis with `enhanced-server/main.go`
-2. **Anthropic Integration**: Live LLM calls with `enhanced-client/main.go`
-3. **Simulation**: See intended behavior with `simulate-sampling/main.go`
+1. **Anthropic Integration**: Live LLM calls with `enhanced-client/main.go`
+1. **Simulation**: See intended behavior with `simulate-sampling/main.go`
 
 ### Phase 3: Debug and Contribute
 1. **Use Debug Tools**: Test connections with tools in `debugging-tools/cmd/`
-2. **Analyze Library Code**: Understand mcp-go StreamableHTTP issues
-3. **Propose Fixes**: Contribute to mcp-go project with evidence
+1. **Analyze Library Code**: Understand mcp-go StreamableHTTP issues
+1. **Propose Fixes**: Contribute to mcp-go project with evidence
 
 ## Key Technical Insights
 
 ### How MCP Sampling Should Work
-```
 1. MCP Client declares sampling capability
-2. Someone calls a tool that needs LLM analysis
-3. MCP Server sends sampling request via SSE
-4. MCP Client processes request using LLM API
-5. MCP Client returns results via HTTP POST
-6. MCP Server provides results to tool caller
-```
+1. Someone calls a tool that needs LLM analysis
+1. MCP Server sends sampling request via SSE
+1. MCP Client processes request using LLM API
+1. MCP Client returns results via HTTP POST
+1. MCP Server provides results to tool caller
 
 ### What's Actually Broken
 - **SSE Connection Issues**: "context deadline exceeded" errors
@@ -170,9 +169,9 @@ go run debugging-tools/cmd/test-workflow/main.go
 
 ### Issue Identification
 1. **SSE Stream Analysis**: Monitor connection establishment
-2. **Event Delivery Testing**: Verify message transmission
-3. **Response Correlation**: Check request/response matching
-4. **Session Management**: Validate MCP headers
+1. **Event Delivery Testing**: Verify message transmission
+1. **Response Correlation**: Check request/response matching
+1. **Session Management**: Validate MCP headers
 
 ### Library Comparison
 Compare mcp-go behavior with our reference implementations:
@@ -197,9 +196,9 @@ Compare mcp-go behavior with our reference implementations:
 
 ### Contribution Workflow
 1. Use our debugging tools to isolate specific issues
-2. Reference our working implementations for correct behavior
-3. Submit PRs to mcp-go with evidence from this project
-4. Test fixes using our comprehensive test suite
+1. Reference our working implementations for correct behavior
+1. Submit PRs to mcp-go with evidence from this project
+1. Test fixes using our comprehensive test suite
 
 ## Advanced Features
 
@@ -232,9 +231,9 @@ Compare mcp-go behavior with our reference implementations:
 
 ### Debug Process
 1. Start with working examples to establish baseline
-2. Use debugging tools to identify specific failure points
-3. Consult analysis documentation for known issues
-4. Compare behavior with reference implementations
+1. Use debugging tools to identify specific failure points
+1. Consult analysis documentation for known issues
+1. Compare behavior with reference implementations
 
 ## License
 

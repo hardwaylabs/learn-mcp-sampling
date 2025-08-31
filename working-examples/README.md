@@ -16,7 +16,7 @@ When debugging MCP sampling issues, it's crucial to understand what working SSE 
 # Terminal 1: Start reference SSE server
 go run cmd/basic_sse_server/main.go
 
-# Terminal 2: Connect reference client  
+# Terminal 2: Connect reference client
 go run cmd/basic_sse_client/main.go
 
 # You should see immediate, clean event streaming
@@ -43,12 +43,12 @@ go run cmd/basic_sse_client/main.go
 
 ## Key Differences
 
-| Aspect | Working SSE | Broken mcp-go |
-|--------|-------------|---------------|
-| **Connection** | Instant HTTP 200 | Timeout after 30s |
-| **Event Delivery** | Immediate streaming | No events received |
-| **Error Messages** | Clean success logs | "context deadline exceeded" |
-| **Browser Test** | Events visible in real-time | Connection never established |
+| Aspect             | Working SSE                 | Broken mcp-go                |
+| ------------------ | --------------------------- | ---------------------------- |
+| **Connection**     | Instant HTTP 200            | Timeout after 30s            |
+| **Event Delivery** | Immediate streaming         | No events received           |
+| **Error Messages** | Clean success logs          | "context deadline exceeded"  |
+| **Browser Test**   | Events visible in real-time | Connection never established |
 
 ## Implementation Highlights
 
@@ -102,17 +102,17 @@ This proves the server-side SSE implementation works perfectly.
 ## What This Proves
 
 1. **SSE Protocol Works**: The underlying technology is solid
-2. **Go Implementation Works**: Our server/client code is correct  
-3. **Network is Fine**: No firewall or proxy issues
-4. **MCP Library is Broken**: mcp-go has specific SSE bugs
+1. **Go Implementation Works**: Our server/client code is correct
+1. **Network is Fine**: No firewall or proxy issues
+1. **MCP Library is Broken**: mcp-go has specific SSE bugs
 
 ## Using as Reference
 
 When contributing fixes to mcp-go:
 1. **Compare Behavior**: How does mcp-go differ from these examples?
-2. **Copy Patterns**: Use these working implementations as templates
-3. **Test Against Baseline**: Verify fixes work as well as these examples
-4. **Document Differences**: Explain what mcp-go needs to change
+1. **Copy Patterns**: Use these working implementations as templates
+1. **Test Against Baseline**: Verify fixes work as well as these examples
+1. **Document Differences**: Explain what mcp-go needs to change
 
 ## Files Included
 
@@ -123,4 +123,5 @@ These are intentionally simple to isolate the core SSE functionality from MCP co
 
 ---
 
-**Key Insight**: The problem isn't SSE or bidirectional communication - it's the specific implementation in mcp-go's StreamableHTTP transport! 🎯
+**Key Insight**: The problem isn't SSE or bidirectional communication - it's the specific implementation
+in mcp-go's StreamableHTTP transport! 🎯

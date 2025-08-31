@@ -1,6 +1,7 @@
 # Enhanced MCP Client with Anthropic API Integration
 
-This enhanced MCP client demonstrates real LLM integration by connecting to Anthropic's Claude API to handle sampling requests from MCP servers.
+This enhanced MCP client demonstrates real LLM integration by connecting to Anthropic's Claude API to handle sampling requests
+from MCP servers.
 
 ## Features
 
@@ -13,8 +14,8 @@ This enhanced MCP client demonstrates real LLM integration by connecting to Anth
 ## Prerequisites
 
 1. **Anthropic API Key**: Get an API key from [Anthropic Console](https://console.anthropic.com/)
-2. **Environment Variable**: Set `ANTHROPIC_API_KEY` environment variable
-3. **Go Dependencies**: Run `go mod tidy` to install dependencies
+1. **Environment Variable**: Set `ANTHROPIC_API_KEY` environment variable
+1. **Go Dependencies**: Run `go mod tidy` to install dependencies
 
 ## Usage
 
@@ -23,12 +24,12 @@ This enhanced MCP client demonstrates real LLM integration by connecting to Anth
    export ANTHROPIC_API_KEY="your-api-key-here"
    ```
 
-2. **Start the Client**:
+1. **Start the Client**:
    ```bash
    go run cmd/enhanced_client/main.go
    ```
 
-3. **Connect to Server**: The client will connect to the MCP server at `http://localhost:8080/mcp`
+1. **Connect to Server**: The client will connect to the MCP server at `http://localhost:8080/mcp`
 
 ## How It Works
 
@@ -36,13 +37,13 @@ This enhanced MCP client demonstrates real LLM integration by connecting to Anth
 The `AnthropicSamplingHandler` implements the `client.SamplingHandler` interface:
 
 1. **Receives MCP Request**: Gets sampling request from the MCP server
-2. **Converts Format**: Transforms MCP message format to Anthropic API format
-3. **Handles Content Types**:
+1. **Converts Format**: Transforms MCP message format to Anthropic API format
+1. **Handles Content Types**:
    - Text content: Sent as text blocks
    - Image content: Sent as base64-encoded image blocks
    - Binary content: Described and sent as base64 text
-4. **Calls Anthropic API**: Makes HTTP request to Claude API
-5. **Returns Results**: Converts response back to MCP format
+1. **Calls Anthropic API**: Makes HTTP request to Claude API
+1. **Returns Results**: Converts response back to MCP format
 
 ### Content Type Handling
 
@@ -62,9 +63,9 @@ The `AnthropicSamplingHandler` implements the `client.SamplingHandler` interface
 This client emulates how real MCP clients like Claude Desktop, Claude Code, or VS Code extensions would integrate with LLM services:
 
 1. **Bidirectional Communication**: Maintains persistent connection to MCP server
-2. **Sampling Request Handling**: Processes incoming sampling requests asynchronously  
-3. **LLM Integration**: Connects to actual language model API
-4. **Response Processing**: Formats and returns LLM responses appropriately
+1. **Sampling Request Handling**: Processes incoming sampling requests asynchronously
+1. **LLM Integration**: Connects to actual language model API
+1. **Response Processing**: Formats and returns LLM responses appropriately
 
 ## Integration Example
 

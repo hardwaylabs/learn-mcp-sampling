@@ -29,12 +29,12 @@ Simple echo tool for testing (no sampling required).
 ## Usage
 
 1. **Prepare Files**: Place files to analyze in the `files/` directory
-2. **Start Server**:
+1. **Start Server**:
    ```bash
    go run cmd/enhanced_server/main.go
    ```
-3. **Start Enhanced Client**: Run the enhanced client with Anthropic API integration
-4. **Connect and Analyze**: Use any MCP client to call the analysis tools
+1. **Start Enhanced Client**: Run the enhanced client with Anthropic API integration
+1. **Connect and Analyze**: Use any MCP client to call the analysis tools
 
 ## File Processing
 
@@ -52,11 +52,11 @@ The server handles different file types appropriately:
 ## Example Workflow
 
 1. Client calls `list_files` to see available files
-2. Client calls `analyze_file` with specific filename and analysis type
-3. Server reads the file and creates a sampling request
-4. Server sends sampling request to the enhanced client via SSE
-5. Enhanced client processes the request using Anthropic API
-6. Enhanced client sends response back to server
-7. Server returns analysis results to the original client
+1. Client calls `analyze_file` with specific filename and analysis type
+1. Server reads the file and creates a sampling request
+1. Server sends sampling request to the enhanced client via SSE
+1. Enhanced client processes the request using Anthropic API
+1. Enhanced client sends response back to server
+1. Server returns analysis results to the original client
 
 This demonstrates the complete bidirectional MCP sampling workflow with real LLM integration.
